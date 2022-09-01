@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+  <configuration>
+  <!-- _언더바를 만나면 카멜형식으로 바꾸기 -->
+  <settings>
+  	<setting name="mapUnderscoreToCamelCase" value="true"></setting>
+  	<!-- 파라미터로 빈 값을 보낼 경우  -->
+  	<setting name="jdbcTypeForNull" value="NULL"></setting>
+  </settings>
+  <!--별칭붙이기 -> 헤당 클래스명을 그대로 쓰기 -->
+  <typeAliases>
+  
+  <package name="com.yedam.java"></package>
+  </typeAliases>
+  </configuration>

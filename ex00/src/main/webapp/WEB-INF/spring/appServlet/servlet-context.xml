@@ -13,14 +13,18 @@
 	<annotation-driven />
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<!-- src/main/respirces는 xml를 모아둠  -->
+	<!--webapp(경로상 최상위 root)밑에 있는 resources - 정적인 파일,사진,음악 등을 넣음  -->
 	<resources mapping="/resources/**" location="/resources/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<!-- 타일즈를 쓰게 되면 타일즈과 완련된 resolver에 추가해야함 -->
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<!-- 실제 컴포넌트나 컨트롤러와 같은 빈을 끌어 당기는것 -->
 	<context:component-scan base-package="com.yedam.java" />
 	
 	
