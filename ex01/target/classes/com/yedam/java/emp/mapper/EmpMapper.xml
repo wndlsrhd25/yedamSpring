@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- XX interface 이름 -> namespace ="xx" -->
+<mapper namespace="com.yedam.java.emp.mapper.EmpMapper">
+	
+	<!-- 전체조회  id=>메소드명/ resultType은 반드시 필요함 -->
+	<select id="getEmpList" resultType="EmpVO">
+		SELECT * FROM employees
+		
+	<!-- 	<where>
+			<if test="departmentId !=null">
+			department_id = #{departmentId} AND
+			</if>
+			<if test="managerId !=null">
+			manager_id = #{managerId} AND
+			</if>
+			job_id = #{jobId}
+		</where> -->
+	</select> 
+
+	<!-- 단건 조회 : 조회조건 - paraemterType=> 넘겨받는 값, getEmp(EmpVO empVO)의 매개변수 // resultType -> 반환타입(EmpVO)-->
+	<!-- #{}로 하면 타입별로 알아서 문자로 변경하거나 숫자로 변경해줌  -->
+	<!--  resultType은 컬럼명과 필드명을 똑같이 해줘야함
+		  resultMap은 내가 만든것 property="empId" column="employee_id" -->
+	<select id="getEmp" parameterType="EmpVO" resultType="EmpVO">
+		SELECT  employee_id,
+				first_name,
+				last_name,
+				<if test="employeeId!=100">
+				email,
+				</if>
+				hire_date,
+				job_id,
+				salary
+		FROM employees
+		WHERE employee_id = #{employeeId}
+	</select>
+	
+	<insert id="insertEmp" parameterType="EmpVO" >
+		<!-- insert, update에서만 사용가능한 selectKey  -->
+		<!-- order="BEFORE" => INSERT OR PUDATE 전에 할건지 후에 할건지 결정 -->
+		<!-- resultType은 필수값 -->
+		<selectKey keyProperty="employeeId" order="BEFORE" resultType="int">
+			SELECT MAX(employee_id)+1 FROM employees
+		</selectKey>
+		INSERT INTO employees (employee_id, first_name, last_name, email, hire_date, job_id, salary)
+					VALUES (#{employeeId}, #{firstName}, #{lastName},#{email},sysdate,#{jobId},#{salary})
+	</insert>
+	
+	<!-- update문 안에는 insert sql이 있어도 큰 문제가 없음 -->
+	<!-- parameterType 매개변수가 int라서 integer-->
+	<update id="updateSalary" parameterType="Integer">
+		UPDATE employees
+		SET salary = salary * 1.1
+		WHERE employee_id = #{empId}
+	</update>
+	
+	<!-- 수정 : 사원정보를 넘겨받아서 이름과 성, 이메일을 수정할 수 있는 메소드 -->
+	<update id="updateEmp" parameterType="EmpVO">
+	
+		UPDATE employees
+		
+		<!-- SET first_name = #{firstName}, last_name = #{lastName}, email=#{email}
+		 -->
+		<set>
+			<if test="firstName !=null">
+			<!-- 있으면 이 문구를 사용해라 -->
+				first_name = #{firstName},
+			</if>
+			<if test="lastName !=null">
+				last_name = #{lastName},
+			</if>
+			<if test="email !=null">
+				email = #{email}
+			</if>
+		</set>	
+		WHERE employee_id = #{employeeId}
+		
+	</update>
+	
+	<delete id="deleteEmp" parameterType="Integer">
+	DELETE FROM employees
+	WHERE employee_id = #{employeeId}
+	</delete>
+	
+	
+</mapper>
