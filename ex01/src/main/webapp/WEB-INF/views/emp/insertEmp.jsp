@@ -27,7 +27,7 @@
 	<label>hire_date : <input type="text" name="hireDate" ></label>
 </div>
 <div>
-	<label>job_id : <input type="text" name="jobId" value="${empInfo.jobId }"></label>
+	<label>job_id : <input type="text" name="jobId"></label>
 </div>
 <div>
 	<label>salary : <input type="text" name="salary"></label>

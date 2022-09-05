@@ -29,7 +29,6 @@ th,td,table {
 	    <th>hire_date</th>
 	    <th>salary</th>  
 	    <th>Delete</th> 
-	
 	</tr>
 </thead>
 <tbody>
