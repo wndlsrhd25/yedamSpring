@@ -8,6 +8,7 @@ import com.yedam.java.emp.service.EmpVO;
 
 public interface EmpMapper {
 
+	//EmpMapper.xml	로 이동
 	//전체조회
 	public List<EmpVO> getEmpList();
 	
@@ -21,9 +22,9 @@ public interface EmpMapper {
 	// employeeId 대신에 empId로 사용하겠다
 	public int updateSalary(@Param("empId")int employeeId);
 	
-	
-	public int updateEmp(EmpVO empVO);
+	//수정
+	public int updateEmpInfo(EmpVO empVO);
 	
 	//삭제
-	public int deleteEmp(int employeeId);
+	public int deleteEmpInfo(int employeeId);
 }

@@ -4,6 +4,8 @@
 <!-- XX interface 이름 -> namespace ="xx" -->
 <mapper namespace="com.yedam.java.emp.mapper.EmpMapper">
 	
+	
+	
 	<!-- 전체조회  id=>메소드명/ resultType은 반드시 필요함 -->
 	<select id="getEmpList" resultType="EmpVO">
 		SELECT * FROM employees
@@ -23,7 +25,7 @@
 	<!-- #{}로 하면 타입별로 알아서 문자로 변경하거나 숫자로 변경해줌  -->
 	<!--  resultType은 컬럼명과 필드명을 똑같이 해줘야함
 		  resultMap은 내가 만든것 property="empId" column="employee_id" -->
-	<select id="getEmp" parameterType="EmpVO" resultType="EmpVO">
+<!-- 	<select id="getEmp" parameterType="EmpVO" resultType="EmpVO">
 		SELECT  employee_id,
 				first_name,
 				last_name,
@@ -33,6 +35,12 @@
 				hire_date,
 				job_id,
 				salary
+		FROM employees
+		WHERE employee_id = #{employeeId}
+	</select> -->
+	
+	<select id="getEmp" parameterType="EmpVO" resultType="EmpVO">
+		SELECT *
 		FROM employees
 		WHERE employee_id = #{employeeId}
 	</select>
@@ -57,7 +65,7 @@
 	</update>
 	
 	<!-- 수정 : 사원정보를 넘겨받아서 이름과 성, 이메일을 수정할 수 있는 메소드 -->
-	<update id="updateEmp" parameterType="EmpVO">
+	<update id="updateEmpInfo" parameterType="EmpVO">
 	
 		UPDATE employees
 		
@@ -79,10 +87,13 @@
 		
 	</update>
 	
-	<delete id="deleteEmp" parameterType="Integer">
+	
+	<delete id="deleteEmpInfo" parameterType="Integer">
 	DELETE FROM employees
 	WHERE employee_id = #{employeeId}
 	</delete>
 	
+	
+	<!-- EmpServiceImpl 로 이동 -->
 	
 </mapper>
