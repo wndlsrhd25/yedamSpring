@@ -45,7 +45,9 @@ th,td,table {
 	</c:forEach>
 </tbody>
 </table>
-<button type="button" onclick="location.href='insertInfo'">등록</button>
+<!-- <button type="button" onclick="location.href='insertInfo'">등록</button> -->
+<button type="button" onclick="location.href='insertForm'">등록</button>
+
 <script>
  
  // 버튼 클릭시 Row 값 가져오기

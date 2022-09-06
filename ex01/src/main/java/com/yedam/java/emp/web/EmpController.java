@@ -51,15 +51,24 @@ public class EmpController {
 		return "redirect:/emp/allList";
 	}
 	
-	
-	@GetMapping("/insertInfo")
-	public String insertInfo(EmpVO empVO) {
-		return "/emp/insertEmp";
+
+	/*
+	 * @GetMapping("/insertInfo") public String insertInfo(EmpVO empVO) { return
+	 * "/emp/insertEmp"; }
+	 * 
+	 * @GetMapping("/insertEmpInfo") public String insertEmpInfo(EmpVO empVO) {
+	 * empService.insertEmp(empVO); return "redirect:/emp/allList"; }
+	 */
+
+	//뷰를 호출하는 컨트롤러 - 데이터를 넘길떄 경로에 붙어서 가기 떄문에 겟은 보안에 취약함
+	@GetMapping("/insertForm")
+	public String insertEmpForm() {
+		return "emp/empInsert";
 	}
 	
-	@GetMapping("/insertEmpInfo")
+	@PostMapping("/insertInfo")
 	public String insertEmpInfo(EmpVO empVO) {
 		empService.insertEmp(empVO);
-		return "redirect:/emp/allList";
+		return "redirect:allList";
 	}
 }

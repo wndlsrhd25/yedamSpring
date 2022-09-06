@@ -67,7 +67,7 @@ public class EmpTest {
 	findVO.setFirstName("자바"); 
 	//findVO.setLastName("김");
 	findVO.setEmail("java222@email.com"); 
-	int result = empMapper.updateEmp(findVO);
+	int result = empMapper.updateEmpInfo(findVO);
 	assertEquals(result,1); 
 	}
 
@@ -81,7 +81,7 @@ public class EmpTest {
 	
 	//@Test
 	public void empDeleteTest() {
-		int result = empMapper.deleteEmp(207);
+		int result = empMapper.deleteEmpInfo(207);
 		assertEquals(result, 1);
 	}
 	

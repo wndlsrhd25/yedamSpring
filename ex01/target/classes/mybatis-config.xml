@@ -12,6 +12,7 @@
   		<!-- <typeAlias type="com.yedam.java.emp.mapper.EmpMapper" alias="EmpMapper"></typeAlias> -->
   		<!-- pakage : container에 등록된 bean을 검색 -->
   		<package name="com.yedam.java.emp.service"></package>
+  		<package name="com.yedam.java.board.service"/>
   	</typeAliases>
   	
   	<typeHandlers>
