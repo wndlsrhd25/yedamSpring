@@ -49,9 +49,9 @@
 		<!-- insert, update에서만 사용가능한 selectKey  -->
 		<!-- order="BEFORE" => INSERT OR PUDATE 전에 할건지 후에 할건지 결정 -->
 		<!-- resultType은 필수값 -->
-		<selectKey keyProperty="employeeId" order="BEFORE" resultType="int">
+<!-- 		<selectKey keyProperty="employeeId" order="BEFORE" resultType="int">
 			SELECT MAX(employee_id)+1 FROM employees
-		</selectKey>
+		</selectKey> -->
 		INSERT INTO employees (employee_id, first_name, last_name, email, hire_date, job_id, salary)
 					VALUES (#{employeeId}, #{firstName}, #{lastName},#{email},sysdate,#{jobId},#{salary})
 	</insert>

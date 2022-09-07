@@ -38,7 +38,7 @@
 			</tr>
 		</table>
 	<button type="submit" onclick="formOption()">등록</button>
-	<button type="button">목록</button>
+	<button type="button" onclick="location.href='list'">목록</button>
 	</form>
 	<script>
 	function formOption(){

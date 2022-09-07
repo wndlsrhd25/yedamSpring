@@ -29,6 +29,7 @@
          </c:forEach>
       </tbody>
    </table>
-   <button type="button" onclick="location.href='insert'">등록</button>
+   <!-- <button type="button" onclick="location.href='insert'">등록</button>-->
+   <button type="button" onclick="location.href='../'">홈으로</button> 
 </body>
 </html>

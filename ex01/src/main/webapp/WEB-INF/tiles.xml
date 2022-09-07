@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+								<!-- template-> 어느 jsp를 기반으로 하겠따 -->
+	<!-- mainTemplate라는 이름으로 고정을 시켜놈 거기에다가 header라는 이름을 넣음 여기는 고정되어 잇음-->
+  <definition name="mainTemplate" template="/WEB-INF/views/tiles/layout.jsp">
+	<put-attribute name="header" value="/WEB-INF/views/tiles/header.jsp"></put-attribute>
+	<put-attribute name="footer" value="/WEB-INF/views/tiles/footer.jsp"></put-attribute> 
+  </definition>
+  
+  						<!-- extends 땡겨와서 사용하겠따 - mainTemplate을 연결시킴 -->
+  <definition name="home" extends="mainTemplate">
+  			<!-- home을 호출하면 main이 작동  -->
+  	<put-attribute name="main" value="/WEB-INF/views/home.jsp"></put-attribute>
+  </definition>
+  
+  <!-- 이렇게 경로를 지정해서 사용해도 됨 -->
+<!--   <definition name="admin/*" extends="adminTemplate">
+  	<put-attribute name="content" value="/WEB-INF/usesr1/{1}.jsp"></put-attribute>
+  </definition> -->
+  
+  
+  <!--*/* 를 이용할거면 맨 밑에 둬야함 -->
+  <definition name="*/*" extends="mainTemplate">
+  												<!--ex) board/list.jsp  -->
+  	<put-attribute name="main" value="/WEB-INF/views/{1}/{2}.jsp"></put-attribute>
+  </definition>
+ 
+
+ 
+</tiles-definitions>

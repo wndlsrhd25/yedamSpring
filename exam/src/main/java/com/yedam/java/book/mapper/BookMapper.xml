@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yedam.java.book.mapper.BookMapper">
+
+
+<!-- 입력된 게시글 번호 조회 -->
+<select id="getBookNo" resultType="BookVO">
+		SELECT NVL(MAX(book_no),0)+1 as book_no FROM BOOK_TBL_06
+	</select>
+
+<!-- 전체조회 -->
+
+<select id="getBookList" resultType="BookVO">
+	SELECT * FROM BOOK_TBL_06
+
+</select>
+
+
+<!-- 조회(도서매출현황) -->
+<select id="getBookRentList" resultType="BookRentVO">
+	SELECT rentNo,bookNo, FROM RENT_TBL_06
+
+</select>
+
+
+<!-- 도서등록  -->
+<insert id="insertBook" parameterType="BookVO" >
+	
+		INSERT INTO BOOK_TBL_06 (book_no, book_name, book_coverimg, book_date, book_price, book_publisher, book_info)
+					VALUES (#{bookNo}, #{bookName}, #{bookCoverimg},#{bookDate},#{bookPrice},#{bookPublisher},#{bookInfo})
+</insert>
+
+
+</mapper>
