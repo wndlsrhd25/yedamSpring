@@ -13,6 +13,7 @@
   		<!-- pakage : container에 등록된 bean을 검색 -->
   		<package name="com.yedam.java.emp.service"></package>
   		<package name="com.yedam.java.board.service"/>
+  		<package name="com.yedam.java.todo.service"/>
   	</typeAliases>
   	
   	<typeHandlers>

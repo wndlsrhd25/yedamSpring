@@ -6,16 +6,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.yedam.java.book.service.BookService;
 import com.yedam.java.book.service.BookVO;
 
 @Controller
 
- @RequestMapping(value="book", method = {RequestMethod.GET, RequestMethod.POST})
+/*
+ * @RequestMapping(value="book", method = {RequestMethod.GET,
+ * RequestMethod.POST})
+ */
 
-
+@RequestMapping("/book")
 public class BookController {
 
 	@Autowired
@@ -36,7 +38,7 @@ public class BookController {
 	//등록-입력폼
 	@GetMapping("/insert")
 	public String insertForm(Model model) {
-		model.addAttribute("bookNo", service.getBookNo());
+		model.addAttribute("bookNo",service.getBookNo());
 		return "book/bookInsert";
 	}
 	

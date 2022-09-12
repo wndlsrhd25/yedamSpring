@@ -9,7 +9,7 @@
 	</settings>
 	<typeAliases>
 		<package name="com.yedam.java.emp.service" />
-		<package name="com.yedam.java.book.service"/>
+		<package name="com.yedam.java.book.service" />
 	</typeAliases>
 	<typeHandlers>
 		<typeHandler javaType="java.sql.Date"

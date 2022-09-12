@@ -28,8 +28,8 @@ public class BookServiceImpl implements BookService {
 	}
 
 	@Override
-	public void insertBook(BookVO bookVO) {
-		bookMapper.insertBook(bookVO);
+	public int insertBook(BookVO bookVO) {
+		return bookMapper.insertBook(bookVO);
 		
 	}
 

@@ -15,7 +15,7 @@ public interface BookService {
 	public List<BookRentVO> getBookRentList(BookRentVO bookRentVO);
 	
 	//등록
-	public void insertBook(BookVO bookVO);
+	public int insertBook(BookVO bookVO);
 
 
 }
