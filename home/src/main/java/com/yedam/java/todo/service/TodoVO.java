@@ -9,5 +9,5 @@ public class TodoVO {
 	private int no;
 	private int id;
 	private String contents;
-	private String todoYn;
+	private String todoyn;
 }

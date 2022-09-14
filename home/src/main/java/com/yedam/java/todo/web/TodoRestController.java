@@ -16,7 +16,7 @@ import com.yedam.java.todo.service.TodoService;
 import com.yedam.java.todo.service.TodoVO;
 
 @RestController 
-@CrossOrigin(origins="*")
+@CrossOrigin(origins ="http://127.0.0.1:5500")
 public class TodoRestController {
 
 	@Autowired
@@ -38,20 +38,16 @@ public class TodoRestController {
 	
 	//부메랑에서 put방식으로 수정할 값을 적고 경로에 사원번호를 적어서 수정할 수 잇음
 	//수정
-	 @PutMapping("/todo/{no}") 
-	 public TodoVO updateTodo(@PathVariable int no) {
-		TodoVO todoVO = new TodoVO();
-		todoVO.setNo(no);
-		service.updateTodo(todoVO); 
-		return todoVO;
+	 @PutMapping("/todo") 
+	 public int updateTodo(@RequestBody TodoVO todoVO) {
+		return service.updateTodo(todoVO); 
 	}
 	
 	
 	//삭제
 	@DeleteMapping("/todo/{no}")
 	public int deleteTodo(@PathVariable int no) {
-		
 		return service.deleteTodo(no);
-		
+
 	}
 }

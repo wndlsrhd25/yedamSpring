@@ -18,7 +18,12 @@ SELECT NVL(MAX(no),0)+1 as no FROM todo
 
 	<!-- 입력 -->
    <insert id="insertTodo" parameterType="TodoVO">
-     insert into todo (no, id, contents, todoyn) values (#{no}, #{id}, #{contents}, #{todoYn})
+   
+	<selectKey keyProperty="no" resultType="Integer" order="BEFORE">
+		SELECT NVL(MAX(no),0)+1 FROM todo
+	</selectKey>
+
+     insert into todo (no, id, contents) values (#{no},#{id}, #{contents})
    		<!-- insert into todo (id, contents) values (#{id}, #{contents}) -->
    </insert>
 	
@@ -26,7 +31,7 @@ SELECT NVL(MAX(no),0)+1 as no FROM todo
 	<update id="updateTodo" parameterType="TodoVO">
 	
 	UPDATE TODO
-	set todoYn = #{todoYn}
+	set todoyn = #{todoyn}
 	WHERE no = #{no}
 	</update>
 	
