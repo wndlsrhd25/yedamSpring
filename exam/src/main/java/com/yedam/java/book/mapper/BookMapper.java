@@ -14,7 +14,7 @@ public interface BookMapper {
 	public List<BookVO> getBookList();
 	
 	//대출현황 조회
-	public BookRentVO getBook(BookRentVO bookRentVO);
+	public BookRentVO getBookRentList(BookRentVO bookRentVO);
 	
 	//도서등록
 	public int insertBook(BookVO bookVO);

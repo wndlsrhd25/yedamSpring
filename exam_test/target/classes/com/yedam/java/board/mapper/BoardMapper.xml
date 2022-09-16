@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yedam.java.board.mapper.BoardMapper">
+
+
+<!-- 게시글 번호 조회 -->
+	<!-- id 값은 mapper에 메소드 명과 통일 시켜야함 -->
+	<select id="getBoardNo" resultType="Integer">
+		SELECT NVL(MAX(BOARD_NO),0) +1 FROM board_tbl_01
+	</select>
+	
+<!-- 게시글 등록 -->
+	<insert id="insertBoard" parameterType="BoardVO">
+		INSERT INTO board_tbl_01 
+					(board_no,
+					 board_title,
+					 board_writer,
+					 board_content,
+					 board_image,
+					 board_date)
+			<!-- vo에 있는 필드명을 가져와야함 -->
+		VALUES (#{boardNo},
+				#{boardTitle}, 
+				#{boardWriter},
+				#{boardContent},
+				#{boardImage},
+				#{boardDate}
+				) 
+	</insert>
+
+<!-- 게시글 전체 조회 -->
+
+<select id="selectAllBoardList" resultType="BoardVO">
+	select * from board_tbl_01 order by board_no
+</select>
+
+
+
+
+
+
+
+
+
+</mapper>
