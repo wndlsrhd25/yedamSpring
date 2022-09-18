@@ -1,4 +1,4 @@
-package com.yedam.java.shop.web;
+package com.yedam.java.product.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.yedam.java.shop.service.ProductService;
-import com.yedam.java.shop.service.ProductVO;
+import com.yedam.java.product.service.ProductService;
+import com.yedam.java.product.service.ProductVO;
 
 @Controller
 @RequestMapping("/product")

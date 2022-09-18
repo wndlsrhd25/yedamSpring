@@ -1,13 +1,13 @@
-package com.yedam.java.shop.service.impl;
+package com.yedam.java.shop.product.impl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.yedam.java.shop.mapper.ProductMapper;
-import com.yedam.java.shop.service.ProductService;
-import com.yedam.java.shop.service.ProductVO;
+import com.yedam.java.product.mapper.ProductMapper;
+import com.yedam.java.product.service.ProductService;
+import com.yedam.java.product.service.ProductVO;
 
 @Service
 public class ProductServiceImpl implements ProductService {

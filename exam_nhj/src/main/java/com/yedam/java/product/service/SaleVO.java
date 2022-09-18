@@ -1,4 +1,4 @@
-package com.yedam.java.shop.service;
+package com.yedam.java.product.service;
 
 import java.util.Date;
 
