@@ -8,6 +8,11 @@
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+		
+		
+
+	
+	
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
@@ -24,22 +29,7 @@
 	</beans:bean>
 	
 	
-	<!-- 타일즈를 설정파일 등록하는 빈  -->
-	<beans:bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
-		<beans:property name="definitions">
-		<!-- 빈이 여러개일 경우 beans:list라고 해야함  -->
-			<beans:list>
-				<beans:value>/WEB-INF/tiles.xml</beans:value>
-			</beans:list>
-		</beans:property>
-	</beans:bean>
-	
-	<!-- 타일즈가 실제로 동작하는 TilesViewResolver 빈-->
-	<beans:bean id="tilesViewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
-		<!-- 우선 순위를 1로 둠 - 타일즈가 제대로 작동하면 이게 실행되고 null이 반환되면 위에 2에서 등록된 resolver이 작동이 됨 -->
-		<beans:property name="order" value="1"></beans:property>
-	</beans:bean>
-	
+
 	
 	<!-- context-path 첫시작 경로  -->
 	<context:component-scan base-package="com.yedam.java" />

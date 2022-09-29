@@ -187,6 +187,12 @@
 		    <version>2.0.7</version>
 		</dependency>
 		
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-tx</artifactId>
+		    <version>${org.springframework-version}</version>
+		</dependency>		
 		<!-- 타일즈 -->
 		<dependency>
 		    <groupId>org.apache.tiles</groupId>
@@ -202,6 +208,16 @@
 		    <version>${org.apache.tiles-version}</version>
 		</dependency>
 		      
+
+		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+		<dependency>
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjweaver</artifactId>
+		    <version>1.9.9.1</version>
+		    <scope>runtime</scope>
+		</dependency>
+
+		
 	</dependencies>
 	
     <build>

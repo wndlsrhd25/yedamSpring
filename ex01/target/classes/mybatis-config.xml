@@ -21,4 +21,7 @@
   		<typeHandler javaType="java.sql.Date" handler="org.apache.ibatis.type.DateTypeHandler"></typeHandler>
   	</typeHandlers>
   	
+  	<mappers>
+  		<mapper class="com.yedam.java.test.mapper.AaaMapper"/>
+  	</mappers>
   </configuration>
